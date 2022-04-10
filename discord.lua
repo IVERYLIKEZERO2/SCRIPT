@@ -3144,39 +3144,43 @@ function DiscordLib:Window(text)
 			end
 			
 			function ChannelContent:Label(text)
-				local Label = Instance.new("TextButton")
-				local LabelTitle = Instance.new("TextLabel")
+                local Label = Instance.new("TextButton")
+                local LabelTitle = Instance.new("TextLabel")
+                local labelfuc = {}
+                
+                
+                Label.Name = "Label"
+                Label.Parent = ChannelHolder
+                Label.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
+                Label.BorderSizePixel = 0
+                Label.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
+                Label.Size = UDim2.new(0, 401, 0, 30)
+                Label.AutoButtonColor = false
+                Label.Font = Enum.Font.Gotham
+                Label.Text = ""
+                Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+                Label.TextSize = 14.000
 
-				Label.Name = "Label"
-				Label.Parent = ChannelHolder
-				Label.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
-				Label.BorderSizePixel = 0
-				Label.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
-				Label.Size = UDim2.new(0, 401, 0, 30)
-				Label.AutoButtonColor = false
-				Label.Font = Enum.Font.Gotham
-				Label.Text = ""
-				Label.TextColor3 = Color3.fromRGB(255, 255, 255)
-				Label.TextSize = 14.000
-
-				LabelTitle.Name = "LabelTitle"
-				LabelTitle.Parent = Label
-				LabelTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				LabelTitle.BackgroundTransparency = 1.000
-				LabelTitle.Position = UDim2.new(0, 5, 0, 0)
-				LabelTitle.Size = UDim2.new(0, 200, 0, 30)
-				LabelTitle.Font = Enum.Font.Gotham
-				LabelTitle.Text = text
-				LabelTitle.TextColor3 = Color3.fromRGB(127, 131, 137)
-				LabelTitle.TextSize = 14.000
-				LabelTitle.TextXAlignment = Enum.TextXAlignment.Left
-				function labelfuc:Refresh(text2)
-            			    LabelTitle.Text = tostring(text2)
-              			end
-
-
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
-			end
+                LabelTitle.Name = "LabelTitle"
+                LabelTitle.Parent = Label
+                LabelTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                LabelTitle.BackgroundTransparency = 1.000
+                LabelTitle.Position = UDim2.new(0, 5, 0, 0)
+                LabelTitle.Size = UDim2.new(0, 200, 0, 30)
+                LabelTitle.Font = Enum.Font.Gotham
+                LabelTitle.Text = text
+                LabelTitle.TextColor3 = Color3.fromRGB(127, 131, 137)
+                LabelTitle.TextSize = 14.000
+                LabelTitle.TextXAlignment = Enum.TextXAlignment.Left
+                
+                function labelfuc:Refresh(text2)
+                    LabelTitle.Text = tostring(text2)
+                end
+                
+                ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+                
+                return labelfuc
+            end
 			
 			function ChannelContent:Bind(text, presetbind, callback)
 				local Key = presetbind.Name
